@@ -1,9 +1,13 @@
 const express = require('express');
 const users = require("./MOCK_DATA.json");
+const fs = require("fs");
 const app = express();
 
 const PORT = 5050;
 
+//Middleware or Pluggin
+
+app.use(express.urlencoded({extended: false}));
 
 //ROUTES
 app.get("/", (req, res)=>{
@@ -52,7 +56,10 @@ app
 
 app.post("/api/users", (req, res) => {
     // TO DO: Create New User
-    return res.json({status: "pending"})
+    const body = req.body;
+    users.push(body);
+    console.log("Body", body);
+    
 })
 
 // app.patch("/api/users/:id", (req, res) => {
