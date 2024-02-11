@@ -5,7 +5,9 @@ GET/ api/users - List all users in JSON form-> DONE
 
 GET/api/ users/1 - Get the user of ID 1
 GET/api/ users/2 - Get the user of ID 2
-
+Dynamic Path Parameters
+GET/api/users/:id
+:id -> Variable | Dynamic
 POST/api/ users - Create new user
 
 PATCH/api/ users / id - Edit the user with ID 1
