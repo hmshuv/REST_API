@@ -1,12 +1,15 @@
 REST API - JSON
 
-GET/ users - List all users
+GET/ users - HTML document Render
+GET/ api/users - List all users in JSON form-> DONE
 
-GET/ users/1 - Get the user of ID 1
-GET/ users/2 - Get the user of ID 2
+GET/api/ users/1 - Get the user of ID 1
+GET/api/ users/2 - Get the user of ID 2
 
-POST/ users - Create new user
+POST/api/ users - Create new user
 
-PATCH/ users / id - Edit the user with ID 1
+PATCH/api/ users / id - Edit the user with ID 1
 
-DELETE/ users / id - Delete the user with ID 1
+DELETE/api/ users / id - Delete the user with ID 1
+
+H
