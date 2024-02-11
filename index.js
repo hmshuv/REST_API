@@ -57,13 +57,11 @@ app
 app.post("/api/users", (req, res) => {
     // TO DO: Create New User
     const body = req.body;
-    users.push(body);
+    users.push({ ...body, id: users.length + 1 });
     fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err, data) => {
-        console.log("Body", body);
-    })
-
-
-})
+        return res.json({ status: "success", id: user.length + 1 });
+    });
+});
 
 // app.patch("/api/users/:id", (req, res) => {
 //     // TO DO: Edit the User with ID
