@@ -22,12 +22,17 @@ app.get("/users", (req, res)=>{
 app.get("/api/users", (req, res) =>{
     res.json(users);
 })
-for(let i = 1; i <= 1000; i++){
-app.get(`/api/users/${i}`, (req, res)=> {
-   res.send(`Hello from ${i}`);
+// for(let i = 1; i <= 1000; i++){
+// app.get(`/api/users/${i}`, (req, res)=> {
+//    res.send(`Hello from ${i}`);
     
-})
-}
+// })
+// }
+app.get("api/users/:id", (req, res)=> {
+    const id = Number(req.params.id);
+    const user = users.find((user) => user.id === id);
+    return res.json(user);
+});
 
 
 app.listen(PORT, ()=> console.log(`server listening to port ${PORT}`));
