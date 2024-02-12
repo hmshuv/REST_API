@@ -19,6 +19,17 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use((req, res, next) => {
+    console.log("hello from middleware 3")
+    fs.appendFile(
+        "log.txt",
+        ` \n ${Date.now()}:  ${req.method}:  ${req.path} \n`,
+        (err, data) => {
+            next();
+        }
+        
+    );
+});
 //ROUTES
 app.get("/", (req, res) => {
     return res.send("Welcome to home page of REST API project");
