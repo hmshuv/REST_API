@@ -7,7 +7,17 @@ const PORT = 5050;
 
 //Middleware or Pluggin
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));  //Express Middleware
+
+app.use((req, res, next) => {
+    console.log("Hello from middleware 1");
+    next();
+});
+
+app.use((req, res, next) => {
+    console.log("Hello from middleware 2");
+    next();
+});
 
 //ROUTES
 app.get("/", (req, res) => {
