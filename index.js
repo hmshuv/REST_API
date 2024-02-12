@@ -23,7 +23,7 @@ app.use((req, res, next) => {
     console.log("hello from middleware 3")
     fs.appendFile(
         "log.txt",
-        ` \n ${Date.now()}:  ${req.method}:  ${req.path} \n`,
+        ` \n ${Date.now()}:  ${req.ip}: ${req.method}:  ${req.path} \n`,
         (err, data) => {
             next();
         }
