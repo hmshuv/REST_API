@@ -45,7 +45,8 @@ app.get("/users", (req, res) => {
 
 //RESR API
 app.get("/api/users", (req, res) => {
-    res.setHeader("myName", "Himanshu_Gupta");
+    res.setHeader("X-myName", "Himanshu_Gupta"); //Custom header
+    //Always add X to custom headers
     console.log(req.headers);
     res.json(users);
 })
