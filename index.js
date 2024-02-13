@@ -1,5 +1,6 @@
 const express = require('express');
 const users = require("./MOCK_DATA.json");
+const morgan = require("morgan")
 const fs = require("fs");
 const app = express();
 
@@ -8,6 +9,8 @@ const PORT = 5050;
 //Middleware or Pluggin
 
 app.use(express.urlencoded({ extended: false }));  //Express Middleware
+
+app.use(morgan("tiny"))
 
 app.use((req, res, next) => {
     console.log("Hello from middleware 1");
@@ -83,7 +86,7 @@ app.post("/api/users", (req, res) => {
     const body = req.body;
     users.push({ ...body, id: users.length + 1 });
     fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err, data) => {
-        return res.json({ status: "success", id: user.length });
+        return res.status(201).json({ status: "success", id: users.length });
     });
 });
 
