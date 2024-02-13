@@ -8,3 +8,7 @@
  1707765791078:  PATCH:  /api/users/12 
  
  1707765796877:  GET:  /api/users/12 
+ 
+ 1707836727079:  ::1: GET:  /users 
+ 
+ 1707836728850:  ::1: GET:  /favicon.ico 
