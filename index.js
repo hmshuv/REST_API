@@ -45,6 +45,7 @@ app.get("/users", (req, res) => {
 
 //RESR API
 app.get("/api/users", (req, res) => {
+    res.setHeader("myName", "Himanshu_Gupta");
     res.json(users);
 })
 // for(let i = 1; i <= 1000; i++){
