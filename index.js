@@ -1,6 +1,7 @@
 const express = require('express');
 const users = require("./MOCK_DATA.json");
-const morgan = require("morgan")
+const mongoose = require('mongoose');
+const morgan = require("morgan");
 const fs = require("fs");
 const app = express();
 
@@ -30,7 +31,7 @@ app.use((req, res, next) => {
         (err, data) => {
             next();
         }
-        
+
     );
 });
 //ROUTES
@@ -65,7 +66,7 @@ app
     .get((req, res) => {
         const id = Number(req.params.id);
         const user = users.find((user) => user.id === id);
-        if(!user) return res.status(404).json({error: "user not found"})
+        if (!user) return res.status(404).json({ error: "user not found" })
         return res.json(user);
     })
     .patch((req, res) => {
@@ -85,8 +86,8 @@ app
 app.post("/api/users", (req, res) => {
     // TO DO: Create New User
     const body = req.body;
-    if(!body|| !body.first_name || !body.last_name || !body.email || !body.gender || !body.job_title){
-        return res.status(400).json({msg:"All fields are required"});
+    if (!body || !body.first_name || !body.last_name || !body.email || !body.gender || !body.job_title) {
+        return res.status(400).json({ msg: "All fields are required" });
     }
     users.push({ ...body, id: users.length + 1 });
     fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err, data) => {
