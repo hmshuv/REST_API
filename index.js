@@ -7,6 +7,34 @@ const app = express();
 
 const PORT = 5050;
 
+
+// Schema 
+const userSchema = new mongoose.Schema({
+    firstName:{
+        type: String, 
+        required: true,
+    },
+    lastName:{
+        type: String,
+        required: false,
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    jobTitle: {
+        type: String,
+
+    },
+    gender: {
+        type: String,
+    },
+})
+
+const User = mongoose.model('user', userSchema)
+
+
 //Middleware or Pluggin
 
 app.use(express.urlencoded({ extended: false }));  //Express Middleware
