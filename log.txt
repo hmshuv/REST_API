@@ -132,3 +132,29 @@
  1708119454248:  ::1: POST:  /api/users/ 
  
  1708119647815:  ::1: POST:  /api/users/ 
+ 
+ 1708119978945:  ::1: GET:  /users 
+ 
+ 1708119980287:  ::1: GET:  /favicon.ico 
+ 
+ 1708120153048:  ::1: GET:  /api/users/ 
+ 
+ 1708120192607:  ::1: GET:  /api/users/ 
+ 
+ 1708120327065:  ::1: GET:  /api/users/ 
+ 
+ 1708120330633:  ::1: GET:  /api/users/ 
+ 
+ 1708120367335:  ::1: GET:  /api/users/65ce2e1d8053e6f049af70b0 
+ 
+ 1708120571644:  ::1: PATCH:  /api/users/:id 
+ 
+ 1708120687506:  ::1: GET:  /api/users/65ce2e1d8053e6f049af70b0 
+ 
+ 1708120697294:  ::1: PATCH:  /api/users/65ce2e1d8053e6f049af70b0 
+ 
+ 1708120863881:  ::1: PATCH:  /api/users/65ce2e1d8053e6f049af70b0 
+ 
+ 1708120868288:  ::1: DELETE:  /api/users/65ce2e1d8053e6f049af70b0 
+ 
+ 1708120916263:  ::1: GET:  /users/ 

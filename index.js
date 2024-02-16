@@ -1,5 +1,5 @@
 const express = require('express');
-const users = require("./MOCK_DATA.json");
+
 const mongoose = require('mongoose');
 const morgan = require("morgan");
 const fs = require("fs");
@@ -76,21 +76,24 @@ app.use((req, res, next) => {
 app.get("/", (req, res) => {
     return res.send("Welcome to home page of REST API project");
 })
-app.get("/users", (req, res) => {
+app.get("/users", async (req, res) => {
+    const allDBUsers = await User.find({})
     const html = `
     <ul>
-    ${users.map((user_email) => `<li> ${user_email.email} </li>`).join("   ")}
+    ${allDBUsers.map((user) => `<li> ${user.email} - ${user.firstName} </li>`).join("   ")}
     </ul>`
         ;
     res.send(html);
 })
 
 //RESR API
-app.get("/api/users", (req, res) => {
+app.get("/api/users", async(req, res) => {
+    const allDBUsers = await User.find({});
+
     res.setHeader("X-myName", "Himanshu_Gupta"); //Custom header
     //Always add X to custom headers
-    console.log(req.headers);
-    res.json(users);
+   
+    return res.json(allDBUsers);
 })
 // for(let i = 1; i <= 1000; i++){
 // app.get(`/api/users/${i}`, (req, res)=> {
@@ -101,19 +104,22 @@ app.get("/api/users", (req, res) => {
 
 app
     .route("/api/users/:id")
-    .get((req, res) => {
+    .get( async (req, res) => {
+        const user = await User.findById(req.params.id);
         const id = Number(req.params.id);
-        const user = users.find((user) => user.id === id);
+        
         if (!user) return res.status(404).json({ error: "user not found" })
         return res.json(user);
     })
-    .patch((req, res) => {
+    .patch(async(req, res) => {
+        await User.findByIdAndUpdate(req.params.id, {lastName:"changed"});
         // TO DO: Edit the User with ID
-        return res.json({ status: "pending" })
+        return res.json({ status: "success" })
     })
-    .delete((req, res) => {
+    .delete( async(req, res) => {
         // TO DO: Delete the User with ID
-        return res.json({ status: "pending" })
+        await User.findByIdAndDelete(req.params.id);
+        return res.json({ status: "success" })
     })
 // app.get("/api/users/:id", (req, res)=> {
 //     const id = Number(req.params.id);
