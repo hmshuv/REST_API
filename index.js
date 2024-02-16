@@ -15,7 +15,7 @@ mongoose
 .catch(err => console.log("Mongo err", err));
 
 
-//making streak on github
+
 
 // Schema 
 const userSchema = new mongoose.Schema({
@@ -39,7 +39,7 @@ const userSchema = new mongoose.Schema({
     gender: {
         type: String,
     },
-}, 
+},
 {timestamps: true})
 
 const User = mongoose.model('user', userSchema)
