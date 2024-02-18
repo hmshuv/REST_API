@@ -1,6 +1,6 @@
 const express = require('express');
 
-const mongoose = require('mongoose');
+const {connectMongoDB} = require('./connection');
 const morgan = require("morgan");
 const fs = require("fs");
 const app = express();
@@ -10,11 +10,7 @@ const PORT = 5050;
 
 
 //Connection
-mongoose
-.connect('mongodb://127.0.0.1:27017/himanshu_first_db')
-.then(() => console.log("MongoDB connected"))
-.catch(err => console.log("Mongo err", err));
-
+connectMongoDB("mongodb://127.0.0.1:27017/himanshu_first_db")
 
 
 
