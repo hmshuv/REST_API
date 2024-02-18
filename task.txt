@@ -10,9 +10,9 @@ GET/api/users/:id
 :id -> Variable | Dynamic
 
 
-POST/api/ users - Create new user
+POST/api/ users - Create new user => D one
 
-PATCH/api/ users / id - Edit the user with ID 1
+PATCH/api/ users / id - Edit the user with ID 1 
 
 DELETE/api/ users / id - Delete the user with ID 1
 
