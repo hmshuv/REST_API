@@ -1,5 +1,4 @@
 const express = require('express');
-
 const { connectMongoDB } = require('./connection');
 const morgan = require("morgan");
 const fs = require("fs");
