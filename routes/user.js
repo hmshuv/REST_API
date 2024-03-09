@@ -69,7 +69,8 @@ router.post("/", async (req, res) => {
         email: body.email,
         gender: body.gender,
         jobTitle: body.job_title,
-        
+        total: body.total,
+
     });
     
     console.log("result", result);
