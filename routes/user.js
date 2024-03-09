@@ -5,6 +5,7 @@ const router = express.Router();
 router.get("/", (req, res) => {
     return res.send("Welcome to home page of REST API project");
 })
+
 // router.get("/users", async (req, res) => {
 //     const allDBUsers = await User.find({})
 //     const html = `
@@ -68,6 +69,7 @@ router.post("/", async (req, res) => {
         email: body.email,
         gender: body.gender,
         jobTitle: body.job_title,
+        
     });
     
     console.log("result", result);
