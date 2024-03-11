@@ -24,9 +24,7 @@ connectMongoDB("mongodb://127.0.0.1:27017/himanshu_first_db")
 app.use(express.urlencoded({ extended: false }));  //Express Middleware
 
 app.use(morgan("tiny"))
-app.use(()=> {console.log("hello there!");
-next();
-})
+
 
 app.use((req, res, next) => {
     console.log("Hello from middleware 1");
